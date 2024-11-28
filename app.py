@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 from scipy.spatial.distance import euclidean
-from flask import Flask, render_template, request, jsonify, send_file
+from flask import Flask, send_file, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 from datetime import datetime
 import pandas as pd
@@ -30,7 +30,7 @@ def calculate_angle_between_centroids(centroid1, centroid2):
 # Main route to display the upload page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_file('index.html')
 
 # Route to handle video upload and processing
 @app.route('/upload', methods=['POST'])
